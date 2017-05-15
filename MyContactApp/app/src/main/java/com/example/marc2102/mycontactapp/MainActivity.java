@@ -11,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
 
     DataHelper myDb;
     EditText editName;
+    EditText editAge;
+    EditText editAddress;
     Button btnaddData;
 
     @Override
@@ -22,12 +24,14 @@ public class MainActivity extends AppCompatActivity {
 
         //add the layout bars
         editName = (EditText) findViewById(R.id.editText_name);
+        editAge = (EditText) findViewById(R.id.editText_age);
+        editAddress = (EditText) findViewById(R.id.editText_address);
     }
 
 
     public void addData(View v) {
 
-        boolean isInserted = myDb.insertData(editName.getText().toString());
+        boolean isInserted = myDb.insertData(editName.getText().toString(),editAge.getText().toString(),editAddress.getText().toString());
 
         if (isInserted == true) {
             Log.d("MyContact", "Success inserting data");
