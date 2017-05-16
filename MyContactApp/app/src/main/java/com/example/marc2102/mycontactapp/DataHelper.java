@@ -18,7 +18,7 @@ public class DataHelper extends SQLiteOpenHelper {
     public static final String COL_4 = "ADDRESS";
 
     public DataHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 2);
     }
 
     @Override
