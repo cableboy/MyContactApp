@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
     public void viewData(View v) {
 
         Context context = getApplicationContext();
-
-
         Cursor res = myDb.getAllData();
         if (res.getCount() == 0) {
             showMessage("Error", "No data is found in the database");
@@ -82,16 +80,18 @@ public class MainActivity extends AppCompatActivity {
         buffer.append("\n");
         res.moveToFirst();
         do {
-            if (res.getString(res.getColumnCount("")).indexOf(editSearch.getText().toString()))
+
                 for (int i = 0; i < res.getColumnCount(); i++) {
                     buffer.append(res.getString(i));
                     buffer.append("\t");
-                }
+                    }
+
                 buffer.append("\n");
             }
             while (res.moveToNext()) ;
             showMessage("Data", buffer.toString());
         }
+
 
 
     private void showMessage(String title, String message) {
@@ -102,5 +102,9 @@ public class MainActivity extends AppCompatActivity {
         builder.setMessage(message);
         builder.show();
     }
+
+   
+
 }
+
 
