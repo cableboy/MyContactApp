@@ -1,6 +1,7 @@
 package com.example.marc2102.mycontactapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -74,24 +75,29 @@ public class MainActivity extends AppCompatActivity {
         StringBuffer buffer = new StringBuffer();
         //setup a loop with the Cursor (res) using moveToNext
         for (int i = 0; i < res.getColumnCount(); i++) {
-            buffer.append(res.getColumnName(i));
-            buffer.append("\t");
+        buffer.append(res.getColumnName(i));
+         buffer.append("\t");
         }
-        buffer.append("\n");
+         buffer.append("\n");
         res.moveToFirst();
-        do {
+          do {
 
-                for (int i = 0; i < res.getColumnCount(); i++) {
-                    buffer.append(res.getString(i));
-                    buffer.append("\t");
-                    }
+             for (int i = 0; i < res.getColumnCount(); i++) {
+                buffer.append(res.getString(i));
+                  buffer.append("\t");
+                 }
 
-                buffer.append("\n");
-            }
-            while (res.moveToNext()) ;
+              buffer.append("\n");
+         }
+          while (res.moveToNext()) ;
             showMessage("Data", buffer.toString());
-        }
+         }
 
+
+    public void searchScreen(View v){
+        Intent intent = new Intent(this,Search.class);
+        startActivity(intent);
+    }
 
 
     private void showMessage(String title, String message) {
@@ -102,8 +108,6 @@ public class MainActivity extends AppCompatActivity {
         builder.setMessage(message);
         builder.show();
     }
-
-   
 
 }
 

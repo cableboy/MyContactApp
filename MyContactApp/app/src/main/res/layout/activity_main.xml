@@ -33,10 +33,10 @@
         android:layout_height="wrap_content"
         android:text="Add Data"
         android:id="@+id/button_add"
-        android:layout_marginBottom="39dp"
         android:onClick="addData"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/editText_address"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,17 +81,16 @@
         android:id="@+id/button_view"
         android:onClick="viewData"
         android:layout_alignTop="@+id/button_add"
-        android:layout_centerHorizontal="true" />
+        android:layout_toEndOf="@+id/button_add" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search"
         android:id="@+id/button_search"
-        android:layout_alignTop="@+id/button_view"
-        android:layout_toEndOf="@+id/button_view"
-        android:layout_marginStart="28dp"
-        android:onClick="search"
-        android:nestedScrollingEnabled="false" />
+        android:nestedScrollingEnabled="false"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/button_view"
+        android:onClick="searchScreen" />
 
 </RelativeLayout>
