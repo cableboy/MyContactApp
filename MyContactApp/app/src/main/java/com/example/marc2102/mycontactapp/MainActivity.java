@@ -3,6 +3,7 @@ package com.example.marc2102.mycontactapp;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         editName = (EditText) findViewById(R.id.editText_name);
         editAge = (EditText) findViewById(R.id.editText_age);
         editAddress = (EditText) findViewById(R.id.editText_address);
+        editSearch = (EditText) findViewById(R.id.editText_search);
     }
 
 
@@ -93,11 +95,36 @@ public class MainActivity extends AppCompatActivity {
             showMessage("Data", buffer.toString());
          }
 
+    
+    public void search(View v)
+    {
 
-    public void searchScreen(View v){
-        Intent intent = new Intent(this,Search.class);
-        startActivity(intent);
+        Cursor c = myDb.getAllData();
+        StringBuffer b = new StringBuffer();
+
+        if (c != null)
+        {
+            c.moveToFirst();
+
+            for (int i = 0; i < c.getCount(); i++)
+            {
+                if (c.getString(1).equals(editSearch.getText().toString()))
+                {
+                    for (int j = 0; j < c.getColumnNames().length; j++)
+                    {
+                        b.append(c.getString(j) + "\n");
+                    }
+                    b.append("\n");
+                }
+                c.moveToNext();
+            }
+            showMessage("Contact Name: " + editSearch.getText().toString(), b.toString());
+        }
     }
+
+
+
+
 
 
     private void showMessage(String title, String message) {

@@ -1,7 +1,9 @@
 package com.example.marc2102.mycontactapp;
 
+import android.app.SearchManager;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -17,6 +19,9 @@ public class DataHelper extends SQLiteOpenHelper {
     public static final String COL_2 = "NAME";
     public static final String COL_3 = "AGE";
     public static final String COL_4 = "ADDRESS";
+
+
+
 
     public DataHelper(Context context) {
         super(context, DATABASE_NAME, null, 2);
@@ -54,5 +59,6 @@ public class DataHelper extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
         return res;
     }
+
 }
 

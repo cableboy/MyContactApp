@@ -91,6 +91,14 @@
         android:nestedScrollingEnabled="false"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/button_view"
-        android:onClick="searchScreen" />
+        android:onClick="search" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_search"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/button_search" />
 
 </RelativeLayout>
